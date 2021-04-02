@@ -40,18 +40,27 @@ def periodSimple(diod : Diods, lightEqualLength : float):
     period(diod, lightEqualLength, lightEqualLength)
 
 print ("Start")
-#while 1:
-    
-for x in range(0, 5):
-    periodSimple(Diods.GREEN, 0.05)
-    periodSimple(Diods.YELLOW, 0.1)
-    periodSimple(Diods.RED, 0.2)
-    
-for x in range(0, 5):
-    periodSimple(Diods.RED, 0.05)
-    periodSimple(Diods.YELLOW, 0.1)
-    periodSimple(Diods.GREEN, 0.2)
 
+
+#GPIO.output(21, GPIO.HIGH)
+#GPIO.output(19, GPIO.HIGH)
+#time.sleep(2)
+#GPIO.output(21, GPIO.LOW)
+
+
+#while 1:
+def main():
+    for x in range(0, 5):
+        periodSimple(Diods.GREEN, 0.05)
+        periodSimple(Diods.YELLOW, 0.1)
+        periodSimple(Diods.RED, 0.2)
+    
+    for x in range(0, 5):
+        periodSimple(Diods.RED, 0.05)
+        periodSimple(Diods.YELLOW, 0.1)
+        periodSimple(Diods.GREEN, 0.2)
+
+#main()
 
 pinCoolDown()
 print ("End")
