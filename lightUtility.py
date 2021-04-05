@@ -20,7 +20,7 @@ def setup():
     GPIO.setup(19, GPIO.OUT)
     GPIO.setup(21, GPIO.OUT)
 
-print ("Setup")
+print ("Util Setup")
 setup()
 
 
@@ -39,7 +39,7 @@ def period(diod : Diods, lightOn : float, lightOff : float):
 def periodSimple(diod : Diods, lightEqualLength : float):
     period(diod, lightEqualLength, lightEqualLength)
 
-print ("Start")
+print ("Util Start")
 
 
 #GPIO.output(21, GPIO.HIGH)
@@ -63,4 +63,4 @@ def main():
 #main()
 
 pinCoolDown()
-print ("End")
+print ("Util End")

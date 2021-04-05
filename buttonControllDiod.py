@@ -1,4 +1,4 @@
-import helloworld as util
+import lightUtility as util
 import RPi.GPIO as GPIO
 import time
 
