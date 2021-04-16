@@ -48,6 +48,10 @@ def bright(device):
     device.contrast(0x80)
     time.sleep(1)
 
+def showMessageHorizontalScrool(msg):
+    device = setup()
+    print(msg)
+    show_message(device, msg, fill="yellow", font=proportional(SINCLAIR_FONT), scroll_delay=0.05)
 
 
 def demo(n, block_orientation, rotate, inreverse):
@@ -103,6 +107,15 @@ def demo(n, block_orientation, rotate, inreverse):
         with canvas(device) as draw:
             text(draw, (0, 0), chr(x), fill="yellow")
             time.sleep(0.1)
+
+
+def setup():
+        # create matrix device
+    serial = spi(port=0, device=0, gpio=noop())
+    device = max7219(serial, cascaded=4 or 1, block_orientation=-90,
+                     rotate=0 or 0, blocks_arranged_in_reverse_order=False)
+    print("Created device")
+    return device
 
 
 if __name__ == "__main__":

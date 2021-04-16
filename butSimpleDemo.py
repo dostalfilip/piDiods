@@ -1,4 +1,4 @@
-import lightUtility as util
+from led import lightUtility as util
 import RPi.GPIO as GPIO
 import time
 
@@ -8,14 +8,13 @@ GPIO.setup(16, GPIO.OUT)
 GPIO.setup(19, GPIO.OUT)
 GPIO.setup(21, GPIO.OUT)
 
-GPIO.setup(24, GPIO.IN, GPIO.PUD_DOWN)
-
+GPIO.setup(26, GPIO.IN, GPIO.PUD_UP)
+GPIO.add_event_detect(26, GPIO.FALLING)
 
 try:
     print("Start Program")
     while True:
-        vstup = GPIO.input(24)
-        if vstup == True:
+        if GPIO.event_detected(26):
             print("Start lighting")
             util.main()
             print("End lighting")
