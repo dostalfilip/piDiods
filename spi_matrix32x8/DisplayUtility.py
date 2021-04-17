@@ -37,7 +37,7 @@ def flowMessage(device, msg):
 
 
 def showMessage(device, msg):
-    print("Simple dosplay")
+    print("Simple display Text")
     with canvas(device) as draw:
         #draw.rectangle(device.bounding_box, outline="white")
         text(draw, (0, 0), msg, fill="white", font=proportional(LCD_FONT))
