@@ -33,7 +33,7 @@ def setupDevice():
 
 def flowMessage(device, msg):
     print("Vertical scrolling")
-    show_message(device, msg, fill="yellow", font=proportional(LCD_FONT), scroll_delay=0.05)
+    show_message(device, msg, fill="yellow", font=proportional(LCD_FONT), scroll_delay=0.03)
 
 
 def showMessage(device, msg):
@@ -41,3 +41,17 @@ def showMessage(device, msg):
     with canvas(device) as draw:
         #draw.rectangle(device.bounding_box, outline="white")
         text(draw, (0, 0), msg, fill="white", font=proportional(LCD_FONT))
+        
+        
+def winkMessage(device, msg):
+    print("Wink display Text")
+    with canvas(device) as draw:
+        text(draw, (0, 0), msg, fill="white")
+
+    #time.sleep(1)
+    for _ in range(2):
+        for intensity in range(16):
+            device.contrast(intensity * 16)
+            time.sleep(0.1)
+
+    device.contrast(0x80)
